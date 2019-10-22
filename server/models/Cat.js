@@ -87,15 +87,6 @@ const CatSchema = new mongoose.Schema({
 // They do not look at individual instance variables since there is
 // no instance of them. Every static function
 // only exists once and is called.
-CatSchema.statics.sayName = (cat) => {
-  console.log(cat.name);
-};
-
-// Schema.statics are static methods attached to the Model or objects
-// These DO NOT have their own instance. They are all the static function.
-// They do not look at individual instance variables since there is
-// no instance of them. Every static function
-// only exists once and is called.
 // In this case, findByName will be attached to the model and objects.
 // They will be able to call this function, but they won't be able to
 // reference any instance variables of that object (or at least accurately)

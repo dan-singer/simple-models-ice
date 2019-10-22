@@ -7,7 +7,7 @@ const express = require('express');
 const compression = require('compression');
 // favicon library to handle favicon requests
 const favicon = require('serve-favicon');
- // Library to parse cookies from the requests
+// Library to parse cookies from the requests
 const cookieParser = require('cookie-parser');
 // library to handle POST requests any information sent in an HTTP body
 const bodyParser = require('body-parser');
@@ -25,16 +25,16 @@ const router = require('./router.js');
 // node application by Heroku is you are using mongoLab
 // otherwise fallback to localhost.
 // The string after mongodb://localhost is the database name. It can be anything you want.
-const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/simpleMVCExample';
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/simple-models-ice';
 
 
 // Newer versions of Mongoose have moved away from soon-to-be-deprecated
 // MongoDB functionality. These changes are 'opt in', so we will opt in
 // to them.
 const mongooseOptions = {
-  useNewUrlParser: true, 
+  useNewUrlParser: true,
   useUnifiedTopology: true,
-}
+};
 
 // call mongoose's connect function and pass in the url.
 // If there are any errors connecting, we will throw it and kill the server.
@@ -42,7 +42,6 @@ const mongooseOptions = {
 // that requires it in this project
 mongoose.connect(dbURL, mongooseOptions, (err) => {
   if (err) {
-    console.log('Could not connect to database');
     throw err;
   }
 });
@@ -96,10 +95,8 @@ router(app);
 
 // Tell the app to listen on the specified port
 app.listen(port, (err) => {
-    // if the app fails, throw the err
+  // if the app fails, throw the err
   if (err) {
     throw err;
   }
-  console.log(`Listening on port ${port}`);
 });
-
